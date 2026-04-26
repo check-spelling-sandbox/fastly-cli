@@ -186,7 +186,7 @@ type OptionalCustomerID struct {
 // Parse returns a customer ID either from a flag or from a user defined
 // environment variable (see pkg/env/env.go).
 //
-// NOTE: Will fallback to FASTLY_CUSTOMER_ID environment variable if no flag value set.
+// NOTE: Will fall back to FASTLY_CUSTOMER_ID environment variable if no flag value set.
 func (sv *OptionalCustomerID) Parse() error {
 	if sv.Value == "" {
 		if e := os.Getenv(env.CustomerID); e != "" {
@@ -206,7 +206,7 @@ type OptionalWorkspaceID struct {
 // Parse returns a workspace ID either from a flag or from a user defined
 // environment variable (see pkg/env/env.go).
 //
-// NOTE: Will fallback to FASTLY_WORKSPACE_ID environment variable if no flag value set.
+// NOTE: Will fall back to FASTLY_WORKSPACE_ID environment variable if no flag value set.
 func (sv *OptionalWorkspaceID) Parse() error {
 	if sv.Value == "" {
 		if e := os.Getenv(env.WorkspaceID); e != "" {
@@ -296,7 +296,7 @@ func GetSpecifiedVersion(vs []*fastly.Version, version string) (*fastly.Version,
 }
 
 // Content determines if the given flag value is a file path, and if so read
-// the contents from disk, otherwise presume the given value is the content.
+// the contents from disk; otherwise, presume the given value is the content.
 func Content(flagval string) string {
 	content := flagval
 	if path, err := filepath.Abs(flagval); err == nil {
@@ -362,7 +362,7 @@ func (j *JSONOutput) JSONFlag() BoolFlagOpts {
 	}
 }
 
-// WriteJSON checks whether the enabled flag is set or not. If set,
+// WriteJSON checks whether or not the enabled flag is set. If set,
 // then the given value is written as JSON to out. Otherwise, false is returned.
 func (j *JSONOutput) WriteJSON(out io.Writer, value any) (bool, error) {
 	if !j.Enabled {

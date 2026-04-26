@@ -353,7 +353,7 @@ func (c *ServeCommand) setBackendsWithDefaultOverrideHostIfMissing(out io.Writer
 // in the fastly.toml [viceroy.viceroy_version]. Otherwise, if not installed, we
 // install it in the same directory as the application configuration data.
 //
-// In the case of a network failure we fallback to the latest installed version of the
+// In the case of a network failure we fall back to the latest installed version of the
 // Viceroy binary as long as one is installed and has the correct permissions.
 func (c *ServeCommand) GetViceroy(spinner text.Spinner, out io.Writer, manifestPath string) (bin string, err error) {
 	if c.ViceroyBinPath != "" {
@@ -928,7 +928,7 @@ func (c *ServeCommand) startPushpin(spinner text.Spinner, out io.Writer) (pushpi
 	//   - path to the routes file to use
 	// - A routes file that sets up the routes. In our case, we:
 	//   - wires up a backend name (id) to the server host
-	//   - if the backend sets an override host, then we set thatt
+	//   - if the backend sets an override host, then we set that
 	//   - if the backend enables HTTPS, then we enable that
 	//   - if the backend has a path prefix, then we set that up
 	//   - enables WebSocket-over-HTTP
@@ -1253,7 +1253,7 @@ func watchFiles(root string, gi *ignore.GitIgnore, verbose bool, s *fstexec.Stre
 		// We do this because if we didn't, then we'd get an error after one
 		// restart of the viceroy executable: "os: process already finished".
 		//
-		// This error happens happens because the compute.watchFiles() function is
+		// This error happens because the compute.watchFiles() function is
 		// run in a goroutine and so it will keep running with a copy of the
 		// fstexec.Streaming command instance that wraps a process which has
 		// already been terminated.

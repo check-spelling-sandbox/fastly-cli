@@ -54,7 +54,7 @@ func NewCreateCommand(parent argparser.Registerer, g *global.Data) *CreateComman
 	return &c
 }
 
-// CreateCommand calls the Fastly API to insert a key into an kv store.
+// CreateCommand calls the Fastly API to insert a key into a kv store.
 type CreateCommand struct {
 	argparser.Base
 	argparser.JSONOutput
@@ -403,7 +403,7 @@ func (c *CreateCommand) CallBatchEndpoint(in io.Reader, out io.Writer) error {
 		}
 
 		// If we were able to convert the error into a fastly.HTTPError, then
-		// display those errors to the user, otherwise we'll display the original
+		// display those errors to the user; otherwise, we'll display the original
 		// error type.
 		if ok {
 			for i, e := range he.Errors {
